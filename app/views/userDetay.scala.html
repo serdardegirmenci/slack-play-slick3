@@ -1,0 +1,111 @@
+@(userForm: Form[models.UserFormDataById], user : Option[models.User])(implicit request: RequestHeader)
+    @main() {
+        @for(u<- user) {
+            <form id="user-data-form" role="form" action='@routes.ApplicationController.updateUser()' method="post" class="form-horizontal" align="center" autocomplete="off">
+
+                <fieldset class="user-fieldset" style="border: 0px">
+
+                    <div class="user-form">
+
+                    </div>
+                    <br/>
+                    <table align="center" cellspacing="20">
+                        <tr>
+                            <td align="left">
+                                <div class="user-form" id="firstName_field_label">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <strong>firstname</strong> :
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <div class="user-form" id="firstName_field_value">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <input type="text" id="firstName" name="firstName" value="@u.firstName" placeholder="First Name" class="form-control input-lg" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <div class="user-form" id="lastName_field_label">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <strong>lastname</strong> :
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <div class="user-form" id="lastName_field_value">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <input type="text" id="lastName" name="lastName" value="@u.lastName" placeholder="Last Name" class="form-control input-lg" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <div class="user-form" id="mobile_field_label">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <strong>mobile</strong> :
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <div class="user-form" id="mobile_field_value">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <input type="tel" id="mobile" name="mobile" placeholder="Mobile"  value="@u.mobile" class="form-control input-lg" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <div class="user-form" id="email_field_label">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <strong>email</strong> :
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td align="center">
+                                <div class="user-form" id="email_field_value">
+                                    <div class="controls col-xs-offset-3 col-xs-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                            <input type="email" id="email" name="email" placeholder="Email" value="@u.email" class="form-control input-lg" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <div class="form-actions controls ynt-btn-xlarge">
+                        <input type="hidden" name="id" id="id" value="@u.id" required>
+                        <button type="submit" class="btn btn-primary ynt-btn-orange">Update</button>
+                    </div>
+
+                </fieldset>
+            </form>
+        }
+    }
